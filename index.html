@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gửi Hồng Phúc ❤️</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap');
+
+        body {
+            background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+            text-align: center;
+            font-family: 'Dancing Script', cursive;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+        h1 {
+            font-size: 50px;
+            color: white;
+            text-shadow: 2px 2px 5px pink;
+        }
+        .love-button {
+            background: pink;
+            color: white;
+            font-size: 20px;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            box-shadow: 0px 5px 10px rgba(255, 105, 180, 0.5);
+            transition: all 0.3s ease;
+        }
+        .love-button:hover {
+            background: #ff1493;
+            transform: scale(1.1);
+        }
+        .message {
+            font-size: 24px;
+            color: white;
+            margin-top: 20px;
+            display: none;
+        }
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            color: red;
+            animation: float 4s linear infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            50% { transform: translateY(-100px) rotate(30deg); opacity: 0.7; }
+            100% { transform: translateY(-200px) rotate(-30deg); opacity: 0; }
+        }
+    </style>
+    <script>
+        function showLoveMessage() {
+            document.getElementById("loveMessage").style.display = "block";
+            document.getElementById("romanticSong").play();
+            createHearts();
+        }
+
+        function createHearts() {
+            for (let i = 0; i < 20; i++) {
+                let heart = document.createElement("div");
+                heart.innerHTML = "❤️";
+                heart.classList.add("heart");
+                heart.style.left = Math.random() * 100 + "vw";
+                heart.style.animationDuration = Math.random() * 3 + 2 + "s";
+                document.body.appendChild(heart);
+                setTimeout(() => { heart.remove(); }, 4000);
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Hồng Phúc à, có điều này anh muốn nói ❤️</h1>
+    <button class="love-button" onclick="showLoveMessage()">Bấm vào đây nè!</button>
+    <p class="message" id="loveMessage">Anhh Phúc Khang(Pk) muôn đời Thuong Em Yeu em Hông Phúc Ạ❤️</p>
+
+    <!-- Nhạc nền -->
+    <audio autoplay loop>
+        <source src="https://www.mboxdrive.com/lofi-romantic.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Nhạc phát khi bấm nút -->
+    <audio id="romanticSong">
+        <source src="https://www.mboxdrive.com/du-cho-tan-the.mp3" type="audio/mpeg">
+    </audio>
+</body>
+</html>
